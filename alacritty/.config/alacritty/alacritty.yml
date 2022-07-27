@@ -1,0 +1,74 @@
+window:
+  padding:
+    x: 5
+    y: 5
+  decorations: none
+  opacity: 0.9
+  startup_mode: maximized
+  gtk_theme_variant: dark
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  normal:
+    family: JetBrainsMono NF
+    style: Regular
+  bold:
+    family: JetBrainsMono NF
+    style: Bold
+  italic:
+    family: JetBrainsMono NF
+    style: Italic
+  bold_italic:
+    family: JetBrainsMono NF
+    style: Bold Italic
+  size: 11.0
+colors:
+  primary:
+    background: '#1e2127'
+    foreground: '#ffffff'
+  normal:
+    black:   '#000000'
+    red:     '#ff0000'
+    green:   '#37dd21'
+    yellow:  '#fee409'
+    blue:    '#1460d2'
+    magenta: '#ff005d'
+    cyan:    '#00bbbb'
+    white:   '#bbbbbb'
+  bright:
+    black:   '#545454'
+    red:     '#f40d17'
+    green:   '#3bcf1d'
+    yellow:  '#ecc809'
+    blue:    '#5555ff'
+    magenta: '#ff55ff'
+    cyan:    '#6ae3f9'
+    white:   '#ffffff'
+  dim:
+    black:   '#131415'
+    red:     '#864343'
+    green:   '#777c44'
+    yellow:  '#9e824c'
+    blue:    '#556a7d'
+    magenta: '#75617b'
+    cyan:    '#5b7d78'
+    white:   '#828482'
+  transparent_background_colors: true
+selection:
+  # semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  save_to_clipboard: true
+
+cursor:
+  style:
+    shape: Beam
+    blinking: On
+  unfocused_hollow: false
+  #thickness: 0.15
+live_config_reload: true
+shell:
+  program: /usr/bin/zsh
+key_bindings:
+  - {key: Return, mods: Control, action: SpawnNewInstance}
