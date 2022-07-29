@@ -157,6 +157,17 @@ local config = {
     },
   },
 
+  -- Javascript and Jsx
+  ["vim-javascript"] = {
+    javascript_plugin_jsdoc = 1,
+    javascript_plugin_ngdoc = 1,
+    javascript_plugin_flow = 1
+  },
+  ["vim-jsx"] = {
+    jsx_ext_required = 1,
+    jsx_pragma_required = 1
+  },
+
   -- CMP Source Priorities
   -- modify here the priorities of default cmp sources
   -- higher value == higher priority
@@ -181,7 +192,7 @@ local config = {
     -- easily add or disable built in mappings added during LSP attaching
     mappings = {
       n = {
-        ["<leader>lf"] = false -- disable formatting keymap
+        -- ["<leader>lf"] = true -- disable formatting keymap
       },
     },
     -- add to the server on_attach function
