@@ -27,35 +27,35 @@ font:
   size: 11.0
 colors:
   primary:
-    background: '#1e2127'
-    foreground: '#ffffff'
+    background: "#1e2127"
+    foreground: "#ffffff"
   normal:
-    black:   '#000000'
-    red:     '#ff0000'
-    green:   '#37dd21'
-    yellow:  '#fee409'
-    blue:    '#1460d2'
-    magenta: '#ff005d'
-    cyan:    '#00bbbb'
-    white:   '#bbbbbb'
+    black: "#000000"
+    red: "#ff0000"
+    green: "#37dd21"
+    yellow: "#fee409"
+    blue: "#1460d2"
+    magenta: "#ff005d"
+    cyan: "#00bbbb"
+    white: "#bbbbbb"
   bright:
-    black:   '#545454'
-    red:     '#f40d17'
-    green:   '#3bcf1d'
-    yellow:  '#ecc809'
-    blue:    '#5555ff'
-    magenta: '#ff55ff'
-    cyan:    '#6ae3f9'
-    white:   '#ffffff'
+    black: "#545454"
+    red: "#f40d17"
+    green: "#3bcf1d"
+    yellow: "#ecc809"
+    blue: "#5555ff"
+    magenta: "#ff55ff"
+    cyan: "#6ae3f9"
+    white: "#ffffff"
   dim:
-    black:   '#131415'
-    red:     '#864343'
-    green:   '#777c44'
-    yellow:  '#9e824c'
-    blue:    '#556a7d'
-    magenta: '#75617b'
-    cyan:    '#5b7d78'
-    white:   '#828482'
+    black: "#131415"
+    red: "#864343"
+    green: "#777c44"
+    yellow: "#9e824c"
+    blue: "#556a7d"
+    magenta: "#75617b"
+    cyan: "#5b7d78"
+    white: "#828482"
   transparent_background_colors: true
 selection:
   # semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -71,4 +71,4 @@ live_config_reload: true
 shell:
   program: /usr/bin/zsh
 key_bindings:
-  - {key: Return, mods: Control, action: SpawnNewInstance}
+  - { key: Return, mods: Control, action: SpawnNewInstance }
