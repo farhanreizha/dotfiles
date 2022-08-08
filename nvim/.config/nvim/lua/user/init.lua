@@ -18,7 +18,7 @@ local config = {
   },
 
   -- Set colorscheme
-  colorscheme = "default_theme",
+  colorscheme = "tokyonight",
 
   -- Override highlight groups in any theme
   highlights = {
@@ -82,7 +82,10 @@ local config = {
     -- Add plugins, the packer syntax without the "use"
     init = {
       {"mxw/vim-jsx"},
-      {"pangloss/vim-javascript"}
+      {"pangloss/vim-javascript"},
+      {"cocopon/iceberg.vim"},
+      {"ayu-theme/ayu-vim"},
+      {"ghifarit53/tokyonight-vim"},
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
 
