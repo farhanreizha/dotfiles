@@ -173,7 +173,7 @@ local config = {
       ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
       ["<A-j>"] = { "<cmd>m .+1<CR>==" },
       ["<A-k>"] = { "<cmd>m .-2<CR>==" },
-      ["<SA-j>"] = { "<cmd>copy +1<CR>" },
+      ["<SA-j>"] = { "<cmd>copy +0<CR>" },
       ["<SA-k>"] = { "<cmd>copy -1<CR>" },
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
@@ -191,7 +191,6 @@ local config = {
       { "pangloss/vim-javascript" },
       { "EdenEast/nightfox.nvim" },
       { "AndrewRadev/tagalong.vim" },
-      { "SirVer/ultisnips" },
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
 
@@ -226,11 +225,6 @@ local config = {
     },
     ["tagalong.vim"] = {
       tagalong_filetypes = "jsx",
-    },
-    ["ultisnips"] = {
-      UltiSnipsExpandTrigger = "<tab>",
-      --[[ UltiSnipsJumpForwardTrigger = "<c-z>", ]]
-      --[[ UltiSnipsJumpBackwardTrigger = "<c-Z>", ]]
     },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
     ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
