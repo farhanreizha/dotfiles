@@ -9,7 +9,7 @@ window:
   #   x: 10
   #   y: 8
   decorations: none
-  opacity: 0.8
+  opacity: 0.85
   startup_mode: maximized
   gtk_theme_variant: none
 
