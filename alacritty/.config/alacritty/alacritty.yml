@@ -9,7 +9,7 @@ window:
   #   x: 10
   #   y: 8
   decorations: none
-  opacity: 0.85
+  opacity: 0.9
   startup_mode: maximized
   gtk_theme_variant: none
 
@@ -50,7 +50,7 @@ shell:
 # KeyBind
 key_bindings:
   - { key: V, mods: Control, action: Paste }
-  - { key: C, mods: Control, action: Copy }
+  - { key: C, mods: Control|Shift, action: Copy }
   - { key: Q, mods: Control, action: Quit }
   - { key: N, mods: Control, action: SpawnNewInstance }
   - { key: Return, mods: Control, action: ToggleFullscreen }
@@ -95,7 +95,6 @@ schemes:
       magenta: "#75617b"
       cyan: "#5b7d78"
       white: "#828482"
-    transparent_background_colors: true
 
   DoomOne: &DoomOne
     primary:
@@ -125,7 +124,6 @@ schemes:
       magenta: "#a9a1e1"
       cyan: "#46d9ff"
       white: "#dfdfdf"
-    transparent_background_colors: true
 
   ### Dracula ###
   Dracula: &Dracula
@@ -181,7 +179,6 @@ schemes:
       magenta: "#ff46b0"
       cyan: "#59dffc"
       white: "#e6e6d1"
-    transparent_background_colors: true
 
   ### Gruvbox dark ###
   GruvboxDark: &GruvboxDark # Default colors
@@ -212,7 +209,6 @@ schemes:
       magenta: "#d3869b"
       cyan: "#8ec07c"
       white: "#ebdbb2"
-    transparent_background_colors: true
 
   ### Monokai ###
   MonokaiPro: &MonokaiPro # Default colors
@@ -241,7 +237,6 @@ schemes:
       magenta: "#AB9DF2"
       cyan: "#78DCE8"
       white: "#FCFCFA"
-    transparent_background_colors: true
 
   ### Nord ###
   Nord: &Nord # Default colors
@@ -270,7 +265,6 @@ schemes:
       magenta: "#B48EAD"
       cyan: "#8FBCBB"
       white: "#ECEFF4"
-    transparent_background_colors: true
 
   ### Oceanic Next ###
   OceanicNext: &OceanicNext # Default colors
@@ -304,7 +298,6 @@ schemes:
       magenta: "#c594c5"
       cyan: "#5fb3b3"
       white: "#d8dee9"
-    transparent_background_colors: true
 
   ### Palenight ###
   Palenight: &Palenight # Default colors
@@ -333,7 +326,6 @@ schemes:
       magenta: "#e1acff"
       cyan: "#a3f7ff"
       white: "#ffffff"
-    transparent_background_colors: true
 
   ### Solarized Dark ###
   SolarizedDark: &SolarizedDark # Default colors
@@ -367,7 +359,6 @@ schemes:
       magenta: "#6c71c4" # violet
       cyan: "#93a1a1" # base1
       white: "#fdf6e3" # base3
-    transparent_background_colors: true
 
   ### Tomorrow Night ###
   TomorrowNight: &TomorrowNight # Default colors
@@ -401,7 +392,42 @@ schemes:
       magenta: "#b77ee0"
       cyan: "#54ced6"
       white: "#282a2e"
-    transparent_background_colors: true
+
+
+  AquariumDark: &AquaDark
+    primary:
+      background: &aquarium_bg "#20202A"
+      foreground: "#63718B"
+      bright_foreground: "#a0a8b6"
+      dim_foreground: "#4c5664"
+
+    cursor:
+      cursor: "#b8dceb"
+      text: "#20202a"
+
+    vi_mode_cursor:
+      cursor: "#E8CCA7"
+
+    bright:
+      black: "#3b3b4d"
+      red: "#cc9b9d"
+      green: "#a3ccad"
+      yellow: "#d1ba97"
+      blue: "#B8C9EA"
+      magenta: "#c497b3"
+      cyan: "#95C2D1"
+      white: "#63718B"
+
+    normal:
+      black: "#44495E"
+      red: "#ebb9b9"
+      green: "#caf6bb"
+      yellow: "#ebe3b9"
+      blue: "#cddbf9"
+      magenta: "#f6bbe7"
+      cyan: "#b8dceb"
+      white: "#C6D0E9"
+
 
 # Set Theme
-colors: *Default
+colors: *AquaDark

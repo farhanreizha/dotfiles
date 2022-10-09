@@ -11,6 +11,7 @@
 export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="/home/farhan/.local/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -116,7 +117,7 @@ alias graph="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgr
 # alias vi='nvim'
 alias vim='nvim'
 
-eval "$(oh-my-posh init zsh --config ~/.poshthemes/spaceship.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/bubblesextra.omp.json)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
