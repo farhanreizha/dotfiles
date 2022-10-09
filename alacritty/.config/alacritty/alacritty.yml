@@ -8,10 +8,12 @@ window:
   # padding:
   #   x: 10
   #   y: 8
-  decorations: none
+  decorations: full
   opacity: 0.9
-  startup_mode: maximized
+  startup_mode: windowed
   gtk_theme_variant: none
+  dynamic_title: false
+  title: ""
 
 scrolling:
   history: 10000
