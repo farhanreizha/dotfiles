@@ -1,3 +1,25 @@
 {
-  "Lua.diagnostics.globals": ["vim"]
+  "Lua.diagnostics.globals": [
+    "vim",
+    "bit",
+    "astronvim_installation",
+    "levels",
+    "iwords",
+    "words",
+    "twords",
+    "digits",
+    "level",
+    "getname",
+    "numberToWord",
+    "vword",
+    "conky_Hour",
+    "conky_Minute",
+    "conky_Date"
+  ],
+  "Lua.diagnostics.disable": [
+    "deprecated",
+    "need-check-nil",
+    "different-requires",
+    "unbalanced-assignments"
+  ]
 }
