@@ -17,6 +17,10 @@ M.general = {
     ["<C-l>"] = { "<Right>", "move right" },
     ["<C-j>"] = { "<Down>", "move down" },
     ["<C-k>"] = { "<Up>", "move up" },
+
+    -- Esc
+    ["jk"] = {"<ESC>", "normal mode"},
+    ["jj"] = {"<ESC>", "normal mode"},
   },
 
   n = {
@@ -59,6 +63,10 @@ M.general = {
 
     -- new buffer
     ["<leader>b"] = { "<cmd> enew <CR>", "new buffer" },
+
+    -- move tbas
+    ["<S-h>"] = {"<cmd>bprevious <CR>", "move tabs left"},
+    ["<S-l>"] = {"<cmd>bnext <CR>", "move tabs right"},
   },
 
   t = { ["<C-x>"] = { termcodes "<C-\\><C-N>", "escape terminal mode" } },
@@ -229,7 +237,7 @@ M.lspconfig = {
 
     ["<leader>fm"] = {
       function()
-        vim.lsp.buf.formatting {}
+        vim.lsp.buf.format { async = true }
       end,
       "lsp formatting",
     },
@@ -262,10 +270,10 @@ M.nvimtree = {
 
   n = {
     -- toggle
-    ["<C-n>"] = { "<cmd> NvimTreeFocus <CR>", "toggle nvimtree" },
+    ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "toggle nvimtree" },
 
     -- focus
-    ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "focus nvimtree" },
+    ["<C-b>"] = { "<cmd> NvimTreeFocus <CR>", "focus nvimtree" },
   },
 }
 
@@ -400,6 +408,70 @@ M.blankline = {
       end,
 
       "Jump to current_context",
+    },
+  },
+}
+
+M.gitsigns = {
+  plugin = true,
+
+  n = {
+    -- Navigation through hunks
+    ["]c"] = {
+      function()
+        if vim.wo.diff then
+          return "]c"
+        end
+        vim.schedule(function()
+          require("gitsigns").next_hunk()
+        end)
+        return "<Ignore>"
+      end,
+      "Jump to next hunk",
+      opts = { expr = true },
+    },
+
+    ["[c"] = {
+      function()
+        if vim.wo.diff then
+          return "[c"
+        end
+        vim.schedule(function()
+          require("gitsigns").prev_hunk()
+        end)
+        return "<Ignore>"
+      end,
+      "Jump to prev hunk",
+      opts = { expr = true },
+    },
+
+    -- Actions
+    ["<leader>rh"] = {
+      function()
+        require("gitsigns").reset_hunk()
+      end,
+      "Reset hunk",
+    },
+
+    ["<leader>ph"] = {
+      function()
+        require("gitsigns").preview_hunk()
+      end,
+      "Preview hunk",
+    },
+
+    ["<leader>gb"] = {
+      function()
+        package.loaded.gitsigns.blame_line()
+      end,
+      "Blame line",
+    },
+
+    ["<leader>td"] = {
+      function()
+        require("gitsigns").toggle_deleted()
+      end,
+      "Toggle deleted",
     },
   },
 }
