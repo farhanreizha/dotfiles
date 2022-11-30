@@ -82,7 +82,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git yarn tmux npm fzf z history zsh-autosuggestions copypath copyfile 
+plugins=(git tmux npm fzf z history zsh-autosuggestions copypath copyfile 
   copybuffer dirhistory sudo web-search sudo zsh-syntax-highlighting jsontools)
 
 source $ZSH/oh-my-zsh.sh
@@ -119,7 +119,6 @@ alias vim='nvim'
 
 eval "$(oh-my-posh init zsh --config ~/.poshthemes/bubblesextra.omp.json)"
 
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
