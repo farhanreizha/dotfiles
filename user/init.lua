@@ -26,7 +26,7 @@ local config = {
   },
 
   -- Set colorscheme to use
-  colorscheme = "default_theme",
+  colorscheme = "iceberg",
 
   -- Add highlight groups in any theme
   highlights = {
@@ -38,7 +38,7 @@ local config = {
     -- },
   },
 
-  -- set vim options here (vim.<first_key>.<second_key> = value)
+  -- set vim options here (vim.<first_key>.<second_key> =  value)
   options = {
     opt = {
       -- set to true or false etc.
@@ -46,7 +46,7 @@ local config = {
       number = true, -- sets vim.opt.number
       spell = false, -- sets vim.opt.spell
       signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-      wrap = false, -- sets vim.opt.wrap
+      wrap = true, -- sets vim.opt.wrap
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
@@ -56,7 +56,11 @@ local config = {
       diagnostics_enabled = true, -- enable diagnostics at start
       status_diagnostics_enabled = true, -- enable diagnostics in statusline
       icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
-      ui_notifications_enabled = true, -- disable notifications when toggling UI elements
+      javascript_plugin_jsdoc = 1,
+      javascript_plugin_ngdoc = 1,
+      javascript_plugin_flow = 1,
+      jsx_pragma_required = 1,
+      jsx_ext_required = 1
     },
   },
   -- If you need more control, you can use the function()...end notation
@@ -80,8 +84,8 @@ local config = {
     "    ███    ██ ██    ██ ██ ███    ███",
     "    ████   ██ ██    ██ ██ ████  ████",
     "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-    "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-    "    ██   ████   ████   ██ ██      ██",
+    "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
+    "    ██   ████   ████   ██ ██      ██",
   },
 
   -- Default theme configuration
@@ -205,52 +209,66 @@ local config = {
       ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
       ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
       ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
+      ["<A-j>"] = { "<cmd>m .+1<CR>==" },
+      ["<A-k>"] = { "<cmd>m .-2<CR>==" },
+      ["<SA-j>"] = { "<cmd>copy +0<CR>" },
+      ["<SA-k>"] = { "<cmd>copy -1<CR>" },
+      ["<C-\\>"] = { "<cmd>ToggleTerm<CR>" },
       -- quick save
-      -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+      ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
     },
     t = {
       -- setting a mapping to false will disable it
       -- ["<esc>"] = false,
+      ["<C-\\>"] = { "<cmd>ToggleTerm<CR>" },
     },
   },
 
   -- Configure plugins
   plugins = {
     init = {
+      { "mxw/vim-jsx" },
+      { "pangloss/vim-javascript" },
+      { "cocopon/iceberg.vim" },
       -- You can disable default plugins as follows:
-      -- ["goolord/alpha-nvim"] = { disable = true },
+      -- ["goolord/alpha-nvim"] = { disable = false },
 
       -- You can also add new plugins here as well:
       -- Add plugins, the packer syntax without the "use"
-      -- { "andweeb/presence.nvim" },
+      { "andweeb/presence.nvim" },
       -- {
       --   "ray-x/lsp_signature.nvim",
       --   event = "BufRead",
-      --   config = function()
-      --     require("lsp_signature").setup()
-      --   end,
+      --   config = function() require("lsp_signature").setup() end,
       -- },
 
       -- We also support a key value style plugin definition similar to NvChad:
-      -- ["ray-x/lsp_signature.nvim"] = {
-      --   event = "BufRead",
-      --   config = function()
-      --     require("lsp_signature").setup()
-      --   end,
-      -- },
+      ["ray-x/lsp_signature.nvim"] = {
+        event = "BufRead",
+        config = function() require("lsp_signature").setup() end,
+      },
     },
+    -- ["vim-javascript"] = {
+    --   javascript_plugin_jsdoc = 1,
+    --   javascript_plugin_ngdoc = 1,
+    --   javascript_plugin_flow = 1,
+    -- },
+    -- ["vim-jsx"] = {
+    --   jsx_ext_required = 1,
+    --   jsx_pragma_required = 1,
+    -- },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
     ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
       -- config variable is the default configuration table for the setup function call
-      -- local null_ls = require "null-ls"
+      local null_ls = require "null-ls"
 
       -- Check supported formatters and linters
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
       config.sources = {
         -- Set a formatter
-        -- null_ls.builtins.formatting.stylua,
-        -- null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.prettier,
       }
       return config -- return final config table
     end,
@@ -263,20 +281,17 @@ local config = {
     },
     -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
     ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
-      -- ensure_installed = { "prettier", "stylua" },
+      ensure_installed = { "prettier", "stylua" },
     },
   },
 
   -- LuaSnip Options
   luasnip = {
+    -- Add paths for including more VS Code style snippets in luasnip
+    vscode_snippet_paths = {},
     -- Extend filetypes
     filetype_extend = {
       -- javascript = { "javascriptreact" },
-    },
-    -- Configure luasnip loaders (vscode, lua, and/or snipmate)
-    vscode = {
-      -- Add paths for including more VS Code style snippets in luasnip
-      paths = {},
     },
   },
 
